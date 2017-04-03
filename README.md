@@ -1,8 +1,7 @@
 # escala
 Work Rotation Schedule Software
 
-*Pip requirements: 
-
+Pip requirements: 
 appdirs==1.4.3
 Django==1.10.6
 mysqlclient==1.3.10
