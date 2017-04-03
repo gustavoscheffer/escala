@@ -25,7 +25,12 @@ SECRET_KEY = 'c8t*k^!_zxkd28%7w1(1nc7!zv$qns&o=hd4xo^jsz)_ol07mx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.233.199.28', 'ec2-54-233-199-28.sa-east-1.compute.amazonaws.com',]
+ALLOWED_HOSTS = [
+                'localhost',
+                '127.0.0.1',
+                '54.233.199.28', 
+                'ec2-54-233-199-28.sa-east-1.compute.amazonaws.com',
+                ]
 
 
 # Application definition
@@ -79,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
 	'USER': 'escala_master',
 	'NAME': 'escala',
-        'PASSWORD': '030688',
+        'PASSWORD': 'Naides0306!',
 	'HOST': '127.0.0.1',
 	'PORT': '',
     }
