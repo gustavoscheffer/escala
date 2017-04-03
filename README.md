@@ -1,4 +1,4 @@
-# escala
+# Escala++
 Work Rotation Schedule Software
 
 Pip requirements:
