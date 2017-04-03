@@ -1,0 +1,17 @@
+body{
+	background-color: #FAFAFA;
+}
+#analistas{
+	color: #1f3d7a;
+	font-weight: bold; 
+}
+
+table{
+	font-size: 12px; 
+}
+
+td > select{
+	width:65px;
+    background-color: #ffffff;
+    height: 22px;
+}

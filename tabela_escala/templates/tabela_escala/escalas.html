@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta 	name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap/css/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/my-style.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap-submenu/dist/css/bootstrap-submenu.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/dataTables.bootstrap.min.css" %}">
+
+	
+	<title>Work Scale++</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url 'index' %}"> CORe</a>
+		</div>
+
+		<div class="navbar-collapse collapse" aria-expanded="true">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" >Escalas<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						{% for ano in anos_do_menu %}
+						<li class="dropdown-submenu">
+							<a tabindex="0">{{ ano.ano }}</a>
+							<ul class="dropdown-menu">
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '1' %}">Janeiro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '2' %}">Fevereiro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '3' %}">Março</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '4' %}">Abril</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '5' %}">Maio</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '6' %}">Junho</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '7' %}">Julho</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '8' %}">Agosto</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '9' %}">Setembro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '10' %}">Outubro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '11' %}">Novembro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '12' %}">Dezembro</a></li>
+							</ul>
+						</li>
+						{% endfor %}
+					</ul>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" href="#">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user_logado.nome }} </a>
+				</li>
+				<li>
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" href="#">
+					<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sair</a>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<h1>Escala de {{ title }}</h1>
+		<hr>
+	</div>
+
+	<div class="container-fluid">
+		{% if analistas_por_escala %}
+		<div class="table-responsive">
+			<table id="example" class="table table-hover table-bordered" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th>ANALISTAS</th>
+						</th>
+						{% for key, value in tabela_header.items %}
+						<th>{{ key }}/{{ value }}</th>
+						{% endfor %}			
+					</tr>
+				</thead>
+				<tbody>
+					{% for analista in analistas_por_escala %}
+					<tr>
+						<td id="analistas">{{ analista.analista.nome}}</td>
+						
+						<td>{{ analista.dia_1 }}</td>
+						<td>{{ analista.dia_2 }}</td>
+						<td>{{ analista.dia_3 }}</td>
+						<td>{{ analista.dia_4 }}</td>
+						<td>{{ analista.dia_5 }}</td>
+						<td>{{ analista.dia_6 }}</td>
+						<td>{{ analista.dia_7 }}</td>
+						<td>{{ analista.dia_8 }}</td>
+						<td>{{ analista.dia_9 }}</td>
+						<td>{{ analista.dia_10 }}</td>
+						<td>{{ analista.dia_11 }}</td>
+						<td>{{ analista.dia_12 }}</td>
+						<td>{{ analista.dia_13 }}</td>
+						<td>{{ analista.dia_14 }}</td>
+						<td>{{ analista.dia_15 }}</td>
+						<td>{{ analista.dia_16 }}</td>
+						<td>{{ analista.dia_17 }}</td>
+						<td>{{ analista.dia_18 }}</td>
+						<td>{{ analista.dia_19 }}</td>
+						<td>{{ analista.dia_20 }}</td>
+						<td>{{ analista.dia_21 }}</td>
+						<td>{{ analista.dia_22 }}</td>
+						<td>{{ analista.dia_23 }}</td>
+						<td>{{ analista.dia_24 }}</td>
+						<td>{{ analista.dia_25 }}</td>
+						<td>{{ analista.dia_26 }}</td>
+						<td>{{ analista.dia_27 }}</td>
+						{% if total_de_dias >= 28 %}
+						<td>{{ analista.dia_28 }}</td>
+						{% endif %}
+						{% if total_de_dias >= 29 %}
+						<td>{{ analista.dia_29 }}</td>
+						{% endif %}
+						{% if total_de_dias >= 30 %}
+						<td>{{ analista.dia_30 }}</td>
+						{% endif %}
+						{% if total_de_dias >= 31 %}
+						<td>{{ analista.dia_31 }}</td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>	
+		</div>			
+	</div>
+	<div class="container-fluid">
+		<a class="btn btn-primary" href="{% url 'editar' ano mes %}" role="button" >Editar</a>
+	</div>
+		{% else %}
+		<h3>Desculpe, ainda não temos a escala deste mês :( </h3>
+	{% endif %}
+	<script src="{% static "assets/jquery.js" %}"> </script>
+	<script src="{% static "assets/jquery.dataTables.min.js" %}"> </script>
+	<script src="{% static "assets/dataTables.bootstrap.min.js" %}"> </script>
+	<script src="{% static "assets/bootstrap/js/bootstrap.js" %}"></script>
+	<script src="{% static "assets/bootstrap-submenu/dist/js/bootstrap-submenu.min.js" %}"></script>
+	<script>
+		$('[data-submenu]').submenupicker();
+		$(document).ready(function() {
+			$('#example').DataTable();
+		} );
+	</script>
+</body>
+</html>

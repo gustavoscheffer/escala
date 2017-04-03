@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta 	name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap/css/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/my-style.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap-submenu/dist/css/bootstrap-submenu.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/dataTables.bootstrap.min.css" %}">
+
+	
+	<title>Escala CORe</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url 'index' %}"> CORe</a>
+		</div>
+
+		<div class="navbar-collapse collapse" aria-expanded="true">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" >Escalas<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						{% for ano in anos_do_menu %}
+						<li class="dropdown-submenu">
+							<a tabindex="0">{{ ano.ano }}</a>
+							<ul class="dropdown-menu">
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '1' %}">Janeiro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '2' %}">Fevereiro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '3' %}">Março</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '4' %}">Abril</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '5' %}">Maio</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '6' %}">Junho</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '7' %}">Julho</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '8' %}">Agosto</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '9' %}">Setembro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '10' %}">Outubro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '11' %}">Novembro</a></li>
+								<li><a tabindex="0" href="{% url 'ano_mes' ano.ano '12' %}">Dezembro</a></li>
+							</ul>
+						</li>
+						{% endfor %}
+					</ul>
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" href="#">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user_logado.nome }} </a>
+				</li>
+				<li>
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" href="#">
+					<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sair</a>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h2> - Ainda estamos em construção ;-)</h2>
+	</div>
+	
+	<script src="{% static "assets/jquery.js" %}"> </script>
+	<script src="{% static "assets/jquery.dataTables.min.js" %}"> </script>
+	<script src="{% static "assets/dataTables.bootstrap.min.js" %}"> </script>
+	<script src="{% static "assets/bootstrap/js/bootstrap.js" %}"></script>
+	<script src="{% static "assets/bootstrap-submenu/dist/js/bootstrap-submenu.min.js" %}"></script>
+	<script>
+		$('[data-submenu]').submenupicker();
+		$(document).ready(function() {
+			$('#example').DataTable();
+		} );
+	</script>
+</body>
+</html>

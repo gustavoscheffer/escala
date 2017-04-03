@@ -1,0 +1,410 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta 	name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap/css/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/my-style.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/bootstrap-submenu/dist/css/bootstrap-submenu.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/dataTables.bootstrap.min.css" %}">
+
+	
+	<title>Work Scale++</title>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url 'index' %}"> CORe</a>
+		</div>
+
+		<div class="navbar-collapse collapse" aria-expanded="true">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" href="#">
+					<span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user_logado.nome }} </a>
+				</li>
+				<li>
+					<a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false" href="#">
+					<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sair</a>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<h1>Escala de {{ title }} : (Editar)</h1>
+		<hr>
+	</div>
+	<div class="container-fluid">
+		<form action="" method="post">
+		{% if analistas_por_escala %}
+		<div class="table-responsive">
+				<table id="example" class="table table-hover table-bordered" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th>ANALISTAS</th>
+							</th>
+							{% for key, value in tabela_header.items %}
+							<th>{{ key }}/{{ value }}</th>
+							{% endfor %}			
+						</tr>
+					</thead>
+					<tbody>
+						{% for analista in analistas_por_escala %}
+						<tr>
+							<td id="analistas">{{ analista.analista.nome}}</td>
+							<td>
+								<select>
+									<option value="{{ analista.dia_1 }}">{{ analista.dia_1 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option value="{{ valor }}"> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_2 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_3 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_4 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_5 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_6 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_7 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_8 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_9 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_10 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_11 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_12 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_13 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_14 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_15 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_16 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_17 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_18 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_19 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_20 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_21 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_22 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_23 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_24 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_25 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_26 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							<td>
+								<select>
+									<option>{{ analista.dia_27 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							{% if total_de_dias >= 28 %}
+							<td>
+								<select>
+									<option>{{ analista.dia_28 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							{% endif %}
+							{% if total_de_dias >= 29 %}
+							<td>
+								<select>
+									<option>{{ analista.dia_29 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							{% endif %}
+							{% if total_de_dias >= 30 %}
+							<td>
+								<select>
+									<option>{{ analista.dia_30 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							{% endif %}
+							{% if total_de_dias >= 31 %}
+							<td>
+								<select>
+									<option>{{ analista.dia_31 }}</option>
+									{% for chave, valor in lista_expediente %}
+									{% if analista.dia_1 != valor %}
+									<option> {{ valor }} </option>
+									{% endif %}
+									{% endfor %}  
+								</select>
+							</td>
+							{% endif %}
+						</tr>
+						{% endfor %}
+					</tbody>
+
+				</table>
+			
+				{% else %}
+				<h3>Desculpe, ainda não temos a escala deste mês :( </h3>
+				{% endif %}
+		</div>
+		<div class="container-fluid">
+			<a class="btn btn-primary" href="{% url 'ano_mes' ano mes %}" role="button" >Cancelar</a>
+			<a class="btn btn-primary" href="{% url 'confirmar' ano mes %}" role="button" >Salvar</a>
+		</div>
+		</form>				
+	</div>
+	<script src="{% static "assets/jquery.js" %}"> </script>
+	<script src="{% static "assets/jquery.dataTables.min.js" %}"> </script>
+	<script src="{% static "assets/dataTables.bootstrap.min.js" %}"> </script>
+	<script src="{% static "assets/bootstrap/js/bootstrap.js" %}"></script>
+	<script src="{% static "assets/bootstrap-submenu/dist/js/bootstrap-submenu.min.js" %}"></script>
+	<script>
+		$('[data-submenu]').submenupicker();
+		$(document).ready(function() {
+			$('#example').DataTable();
+		} );
+	</script>
+</body>
+</html>
